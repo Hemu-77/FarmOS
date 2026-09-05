@@ -3,6 +3,7 @@ import "dotenv/config"
 import express from "express";
 import connectDB from "./config/db.js";
 import authRouter from "./routes/auth.routes.js";
+import farmRouter from "./routes/farm.routes.js"
 
 const app = express();
 
@@ -11,7 +12,8 @@ const PORT = 8888;
 connectDB();
 
 app.use(express.json());
-app.use("/api/auth", authRouter)
+app.use("/api/auth", authRouter);
+app.use("/api/farm",farmRouter);
 
 app.get("/", (req, res) => {
     console.log("GET / received");
