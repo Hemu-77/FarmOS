@@ -14,8 +14,22 @@ const fieldSchema = mongoose.Schema({
     description : {
         type : String,
         minLength : 12,
+    },
+    geometry : {
+        type : {
+            type : String,
+            enum : ["polygon"],
+            // required : true
+        },
+
+        coordinates : {
+            type : [[[Number]]],
+            // required : true
+        }
     }
 },{timestamps : true})
+
+fieldSchema.index({ geometry : '2dsphere' })
 
 const fieldModel = mongoose.model("Field", fieldSchema);
 
