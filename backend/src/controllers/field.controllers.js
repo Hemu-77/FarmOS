@@ -3,7 +3,7 @@ import FarmModel from "../models/farms.model.js";
 
 export const addField = async( req, res) => {
     try{
-        const {name, description} = req.body;
+        const {name, description, geometry } = req.body;
     const { farmId } = req.params;
     const userId = req.userId;
 
@@ -18,7 +18,7 @@ export const addField = async( req, res) => {
         })
     }
 
-    const newField =  new fieldModel({name, farm : farmId, description})
+    const newField =  new fieldModel({name, farm : farmId, description, geometry})
     await newField.save();
 
     return res.status(201).json({
