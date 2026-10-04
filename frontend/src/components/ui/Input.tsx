@@ -1,5 +1,5 @@
 
-type InputProps =React.InputHTMLAttributes<HTMLInputElement> & {
+type InputProps = React.InputHTMLAttributes<HTMLInputElement> & {
 className ?: string
 }
 export default function Input({className, ...props} : InputProps){
